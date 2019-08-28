@@ -26,7 +26,15 @@ assert not isUnique('$watermelon')
 # 1.2 Check Permutation
 #   Given two strings, write a method to decide if one is a permutation of the other.
 def checkPermutation(s1: str, s2: str) -> bool:
-    pass
+    return False if len(s1) != len(s2) else sorted(s1) == sorted(s2)
+
+
+assert checkPermutation('dog', 'god')
+assert checkPermutation('@$%&^', '$&%^@')
+assert checkPermutation('crackingthecode', 'kigthecodecracn')
+assert not checkPermutation('wumpus', 'swompu')
+assert not checkPermutation('alphabet', 'alphabe')
+assert not checkPermutation('word', 'word ')
 
 
 # 1.3 URLify
