@@ -16,6 +16,13 @@ def isUnique(x: str) -> bool:
     return True
 
 
+assert isUnique('cat')
+assert isUnique('word@#')
+assert not isUnique('apple')
+assert not isUnique('cat  ')
+assert not isUnique('$watermelon')
+
+
 # 1.2 Check Permutation
 #   Given two strings, write a method to decide if one is a permutation of the other.
 def checkPermutation(s1: str, s2: str) -> bool:
@@ -77,38 +84,3 @@ def zeroMatrix(x: list) -> list:
 #   one call to isSubstring (e.g., 'waterbottle' is a rotation of 'erbottlewat').
 def strRotation(s1: str, s2: str) -> bool:
     pass
-
-
-# Error Checking
-if __name__ == '__main__':
-    print('Testing isUnique')
-    assert isUnique('cat')
-    assert isUnique('word@#')
-    assert not isUnique('apple')
-    assert not isUnique('cat  ')
-    assert not isUnique('$watermelon')
-
-
-    print('Testing checkPermutation')
-    #TODO: Add tests for checkPermutation
-
-    print('Testing URLify')
-    #TODO: Add tests for URLify
-
-    print('Testing palinPermutation')
-    #TODO: Add tests for palinPermutation
-
-    print('Testing oneAway')
-    #TODO: Add tests for oneAway
-
-    print('Testing strCompression')
-    #TODO: Add tests for strCompression
-
-    print('Testing rotateMatrix')
-    #TODO: Add tests for rotateMatrix
-
-    print('Testing zeroMatrix')
-    #TODO: Add tests for zeroMatrix
-
-    print('Testing strRotation')
-    #TODO: Add tests for strRotation
