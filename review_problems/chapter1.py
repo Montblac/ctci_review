@@ -41,8 +41,15 @@ assert not checkPermutation('word', 'word ')
 #   Write a method to replace all spaces in a string with '%20'. You may assume that
 #   the string has sufficient space at the end to hold the additional characters, and
 #   that you are given the 'true' length of the string.
-def URLify(x: str) -> str:
-    pass
+def urlify(x: str, n: int) -> str:
+    return x.replace(' ', '%20')
+
+
+assert urlify('banana ', 9) == 'banana%20'
+assert urlify(' pine apple ', 12) == '%20pine%20apple%20'
+assert urlify('apple', 5) == 'apple'
+assert urlify(' grapes', 9) != ' grapes'
+assert urlify(' ', 3) != ' '
 
 
 # 1.4 Palindrome Permutation
