@@ -5,7 +5,15 @@
 #   Implement an algorithm to determine if a string has all unique characters.
 #   What if you cannot use additional data structures?
 def isUnique(x: str) -> bool:
-    pass
+    if len(x) > 128:
+        return False
+    char_table = {}
+    for char in x:
+        if char not in char_table:
+            char_table[char] = 1
+        else:
+            return False
+    return True
 
 
 # 1.2 Check Permutation
@@ -74,12 +82,17 @@ def strRotation(s1: str, s2: str) -> bool:
 # Error Checking
 if __name__ == '__main__':
     print('Testing isUnique')
-    #TODO: Add tests for isUnique
+    assert isUnique('cat')
+    assert isUnique('word@#')
+    assert not isUnique('apple')
+    assert not isUnique('cat  ')
+    assert not isUnique('$watermelon')
+
 
     print('Testing checkPermutation')
     #TODO: Add tests for checkPermutation
 
-    print('Tetsing URLify')
+    print('Testing URLify')
     #TODO: Add tests for URLify
 
     print('Testing palinPermutation')
