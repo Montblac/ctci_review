@@ -109,15 +109,36 @@ assert not oneAway('pale', 'bake')
 assert not oneAway('pale', 'pl')
 
 
-
 # 1.6 String Compression
 #   Implement a method to perform basic string compression using the counts of repeated
-#   characters. For example, the string aabccccaaaa would become a2b1c5a3. If the
+#   characters. For example, the string aabcccccaaa would become a2b1c5a3. If the
 #   'compressed' string would not become smaller than the original string, your method
 #   should return the original string. You can assume the string has only uppercase
 #   and lowercase letters (a-z).
 def strCompression(x: str) -> str:
-    pass
+    result = []
+    count = 0
+    p1 = p2 = 0
+    while p1 < len(x) and p2 < len(x):
+        if x[p1] == x[p2]:
+            count += 1
+            p2 += 1
+            if p2 >= len(x):
+                result.append(x[p1])
+                result.append(str(count))
+        else:
+            result.append(x[p1])
+            result.append(str(count))
+            p1 = p2
+            count = 0
+
+    result = ''.join(result)
+    return x if len(x) <= len(result) else result
+
+
+assert strCompression('act') == 'act'
+assert strCompression('aaabcccde') == 'aaabcccde'
+assert strCompression('aabcccccaaa') == 'a2b1c5a3'
 
 
 # 1.7 Rotate Matrix
