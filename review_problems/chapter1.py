@@ -84,7 +84,33 @@ assert not palinPermutation('tomatomx')
 #   remove a character, or replace a character. Given two strings, write a function to
 #   check if they are one edit (or zero edits) away.
 def oneAway(s1: str, s2: str) -> bool:
-    pass
+    max_str = s1 if len(s1) > len(s2) else s2
+    min_str = s2 if len(s1) > len(s2) else s1
+
+    if len(max_str) - len(min_str) > 1:
+        return False
+
+    diff = 0
+    offset = 0
+
+    for i in range(len(max_str)):
+        if offset >= len(min_str) or max_str[i] != min_str[offset]:
+            diff += 1
+            if diff > 1:
+                return False
+            if len(max_str) == len(min_str):
+                offset += 1
+        else:
+            offset += 1
+    return True
+
+
+assert oneAway('pale', 'ple')
+assert oneAway('pales', 'pale')
+assert oneAway('pale', 'bale')
+assert not oneAway('pale', 'bake')
+assert not oneAway('pale', 'pl')
+
 
 
 # 1.6 String Compression
