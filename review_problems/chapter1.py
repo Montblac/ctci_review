@@ -139,6 +139,8 @@ def strCompression(x: str) -> str:
 assert strCompression('act') == 'act'
 assert strCompression('aaabcccde') == 'aaabcccde'
 assert strCompression('aabcccccaaa') == 'a2b1c5a3'
+assert strCompression('abacadaeeeeaadddddddd') == 'a1b1a1c1a1d1a1e4a2d8'
+assert not strCompression('abbbauudooo') == 'a1b3a1u2d1o3'
 
 
 # 1.7 Rotate Matrix
