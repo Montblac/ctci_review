@@ -84,15 +84,12 @@ assert not palinPermutation('tomatomx')
 #   remove a character, or replace a character. Given two strings, write a function to
 #   check if they are one edit (or zero edits) away.
 def oneAway(s1: str, s2: str) -> bool:
-    max_str = s1 if len(s1) > len(s2) else s2
-    min_str = s2 if len(s1) > len(s2) else s1
-
+    max_str, min_str = (s1, s2) if len(s1) > len(s2) else (s2, s1)
     if len(max_str) - len(min_str) > 1:
         return False
 
     diff = 0
     offset = 0
-
     for i in range(len(max_str)):
         if offset >= len(min_str) or max_str[i] != min_str[offset]:
             diff += 1
