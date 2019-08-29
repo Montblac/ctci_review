@@ -58,7 +58,25 @@ assert urlify(' ', 3) != ' '
 #   permutation is a rearrangement of letters. The palindrome does not need to be limited
 #   to just dictionary words.
 def palinPermutation(x: str) -> bool:
-    pass
+    char_table = {}
+    for c in x:
+        if c not in char_table:
+            char_table[c] = 1
+        else:
+            char_table[c] += 1
+    count = 0
+    for val in char_table.values():
+        if val % 2 != 0:
+            count += 1
+    return count <= 1
+
+
+assert palinPermutation('racecar')
+assert palinPermutation('raadr')
+assert palinPermutation('snppssnaas')
+assert not palinPermutation('tiger')
+assert not palinPermutation('racecar ')
+assert not palinPermutation('tomatomx')
 
 
 # 1.5 One Away
